@@ -1,2 +1,2 @@
-# java-study-telegram-bot
-Java Study Telegram Bot (JSTB)
+# Java Study Telegram Bot (JSTB)
+My project
