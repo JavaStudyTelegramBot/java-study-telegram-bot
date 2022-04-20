@@ -5,4 +5,4 @@
 * added SpringBoot skeleton project
 
 ##0.2.0-SNAPSHOT
-* added command: HELP, START, STOP, NO
+* added commands: HELP, START, STOP, NO
