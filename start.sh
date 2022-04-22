@@ -11,8 +11,8 @@ mvn package
 docker-compose stop
 
 # Add environment variables
-export BOT_NAME=$1
-export BOT_TOKEN=$2
+export BOT_NAME='test_java_study_bot'
+export BOT_TOKEN='5341917446:AAHoTpi8cj6gKZmRuNX42-VJbdmP-jofwFE'
 
 # Start new deployment
 docker-compose up --build -d
