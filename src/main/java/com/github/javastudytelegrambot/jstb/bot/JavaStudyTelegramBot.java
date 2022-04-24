@@ -2,6 +2,8 @@ package com.github.javastudytelegrambot.jstb.bot;
 
 import com.github.javastudytelegrambot.jstb.command.CommandContainer;
 import com.github.javastudytelegrambot.jstb.service.SendBotMessageServiceImpl;
+import com.github.javastudytelegrambot.jstb.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -23,8 +25,9 @@ public class JavaStudyTelegramBot extends TelegramLongPollingBot {
 
     private final CommandContainer commandContainer;
 
-    public JavaStudyTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public JavaStudyTelegramBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Override
