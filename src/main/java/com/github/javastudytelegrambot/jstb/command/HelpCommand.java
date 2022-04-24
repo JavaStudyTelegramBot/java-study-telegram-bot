@@ -16,8 +16,9 @@ public class HelpCommand implements Command {
                                                 "<b>Начать/закончить работу с ботом</b>\n" +
                                                 "%s - начать работу со мной\n" +
                                                 "%s - приостановить работу со мной\n\n" +
-                                                "%s - получить помощь в работе со мной\n",
-                                    START.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
+                                                "%s - получить помощь в работе со мной\n" +
+                                                "%s - получить статистику бота",
+                                    START.getCommandName(), STOP.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -25,6 +26,7 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), HELP_MESSAGE);
+        String chatId = update.getMessage().getChatId().toString();
+        sendBotMessageService.sendMessage(chatId, HELP_MESSAGE);
     }
 }

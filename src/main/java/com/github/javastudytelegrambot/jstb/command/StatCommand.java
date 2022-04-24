@@ -4,33 +4,23 @@ import com.github.javastudytelegrambot.jstb.service.SendBotMessageService;
 import com.github.javastudytelegrambot.jstb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-/**
- * STOP {@link Command}.
- */
-
-
-public class StopCommand implements Command {
+public class StatCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public final static String STOP_MESSAGE = "Отписал от всех групп \ud83d\ude2e\u200d\ud83d\udca8";
+    public final static String STAT_MESSAGE = "JavaStudy Telegram Bot пользуются %s чел.";
 
-    public StopCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
+    public StatCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
         this.telegramUserService = telegramUserService;
     }
 
+
     @Override
     public void execute(Update update) {
         String chatId = update.getMessage().getChatId().toString();
+        int countActiveUsers = telegramUserService.retrieveAllActiveUsers().size();
 
-        telegramUserService.findByChatId(chatId).ifPresent(
-                telegramUser -> {
-                    telegramUser.setActive(false);
-                    telegramUserService.save(telegramUser);
-                }
-        );
-
-        sendBotMessageService.sendMessage(chatId, STOP_MESSAGE);
+        sendBotMessageService.sendMessage(chatId, String.format(STAT_MESSAGE, countActiveUsers));
     }
 }

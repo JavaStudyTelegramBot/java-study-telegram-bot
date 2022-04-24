@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import static com.github.javastudytelegrambot.jstb.command.CommandName.START;
 import static com.github.javastudytelegrambot.jstb.command.StartCommand.START_MESSAGE;
 
-@DisplayName("Test for UNKNOWN command")
+@DisplayName("Test for START command")
 public class StartCommandTest extends AbstractCommandTest {
     @Override
     String getCommandName() {
@@ -19,6 +19,6 @@ public class StartCommandTest extends AbstractCommandTest {
 
     @Override
     Command getCommand() {
-        return new StartCommand(sendBotMessageService);
+        return new StartCommand(sendBotMessageService, telegramUserService);
     }
 }
