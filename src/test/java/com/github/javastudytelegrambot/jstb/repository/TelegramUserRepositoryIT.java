@@ -2,7 +2,6 @@ package com.github.javastudytelegrambot.jstb.repository;
 
 import com.github.javastudytelegrambot.jstb.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,9 @@ import java.util.Optional;
 
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
-/**
- * Integration-level testing for {@link TelegramUserRepository}.
- */
+// /**
+//  * Integration-level testing for {@link TelegramUserRepository}.
+//  */
 @ActiveProfiles("test")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)

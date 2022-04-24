@@ -1,1 +1,1 @@
-DELETE FROM tg_users;
+DROP TABLE IF EXISTS tg_user;
