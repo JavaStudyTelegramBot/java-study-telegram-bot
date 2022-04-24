@@ -23,6 +23,7 @@ jobs:
           mysql user: 'jstb_db_user'
           mysql password: 'jstb_db_password'
           host port: 3308
+          container port: 3308
       - name: Set up JDK 1.11
         uses: actions/setup-java@v1
         with:
