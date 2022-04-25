@@ -14,4 +14,4 @@ $ bash start.sh ${bot_username} ${bot_token}
 
 That's all.
 
-* JavaRushApi[https://javarush.ru/swagger-ui.html]
+* [JavaRushApi](https://javarush.ru/swagger-ui.html)
