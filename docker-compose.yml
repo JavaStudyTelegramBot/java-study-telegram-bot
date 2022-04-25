@@ -1,8 +1,8 @@
 version: '3.1'
 services:
   jstb:
-    depends_on:
-      - jstb-db
+#    depends_on:
+#      - jstb-db
     build:
       context: .
     environment:
@@ -11,15 +11,16 @@ services:
       BOT_DB_USERNAME: ${BOT_DB_USERNAME}
       BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
     restart: always
-  jstb-db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'jstb_db'
-      MYSQL_USER: 'jstb_db_user'
-      MYSQL_PASSWORD: 'jstb_db_password'
-      MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - '3308:3306'
-    expose:
-      - '3308'
+#  jstb-db:
+#    image: mysql:5.7
+#    restart: always
+#    environment:
+#      MYSQL_DATABASE: 'jstb_db'
+#      MYSQL_USER: 'jstb_db_user'
+#      MYSQL_PASSWORD: 'jstb_db_password'
+#      MYSQL_ROOT_PASSWORD: 'root'
+#    ports:
+#      - '3308:3306'
+#    expose:
+#      - '3308'
+#    command: --character-set-server=utf8 --collation-server=utf8_general_ci
