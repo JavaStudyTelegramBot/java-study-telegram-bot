@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import java.util.Locale;
-
 import static com.github.javastudytelegrambot.jstb.command.CommandName.NO;
 
 @Component
@@ -51,7 +49,7 @@ public class JavaStudyTelegramBot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
             if (message.startsWith(PREFIX_FOR_COMMAND)) {
-                String commandIdentifier = message.split(" ")[0].toLowerCase(Locale.ROOT);
+                String commandIdentifier = message.split(" ")[0];
                 commandContainer.retrieveCommand(commandIdentifier).execute(update);
             } else {
                 commandContainer.retrieveCommand(NO.getCommandName()).execute(update);

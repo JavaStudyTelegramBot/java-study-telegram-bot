@@ -7,9 +7,11 @@ import com.github.javastudytelegrambot.jstb.javarushclient.dto.GroupsCountReques
 import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class JavaRushGroupClientImpl implements JavaRushGroupClient {
     private final String javarushGroupApiPath;
 

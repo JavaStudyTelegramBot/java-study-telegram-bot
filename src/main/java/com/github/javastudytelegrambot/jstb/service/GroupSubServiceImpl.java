@@ -5,10 +5,12 @@ import com.github.javastudytelegrambot.jstb.repository.GroupSubRepository;
 import com.github.javastudytelegrambot.jstb.repository.entity.GroupSub;
 import com.github.javastudytelegrambot.jstb.repository.entity.TelegramUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.ws.rs.NotFoundException;
 import java.util.Optional;
 
+@Service
 public class GroupSubServiceImpl implements GroupSubService {
     private final GroupSubRepository groupSubRepository;
     private final TelegramUserService telegramUserService;
@@ -39,5 +41,15 @@ public class GroupSubServiceImpl implements GroupSubService {
             groupSub.setTitle(groupDiscussionInfo.getTitle());
         }
         return groupSubRepository.save(groupSub);
+    }
+
+    @Override
+    public GroupSub save(GroupSub groupSub) {
+        return groupSubRepository.save(groupSub);
+    }
+
+    @Override
+    public Optional<GroupSub> findById(Integer id) {
+        return groupSubRepository.findById(id);
     }
 }
