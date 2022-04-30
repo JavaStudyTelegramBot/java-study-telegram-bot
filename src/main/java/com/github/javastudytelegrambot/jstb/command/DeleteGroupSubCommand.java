@@ -19,7 +19,7 @@ import static com.github.javastudytelegrambot.jstb.command.CommandUtils.getChatI
 import static com.github.javastudytelegrambot.jstb.command.CommandUtils.getMessage;
 import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.SPACE;
-import static org.hibernate.query.criteria.internal.ValueHandlerFactory.isNumeric;
+import static org.apache.commons.lang3.StringUtils.isNumeric;
 
 public class DeleteGroupSubCommand implements Command {
     private final SendBotMessageService sendBotMessageService;

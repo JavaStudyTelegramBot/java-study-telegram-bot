@@ -1,5 +1,8 @@
 # Release Notes
 
+## 0.5.0-SNAPSHOT
+* added addGroup, listGroup, deleteGroup
+
 ## 0.4.0-SNAPSHOT
 * added repository layer.
 
