@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.util.List;
+
 import static com.github.javastudytelegrambot.jstb.command.CommandName.NO;
 
 @Component
@@ -28,10 +30,10 @@ public class JavaStudyTelegramBot extends TelegramLongPollingBot {
     @Autowired
     public JavaStudyTelegramBot(TelegramUserService telegramUserService,
                                JavaRushGroupClient javaRushGroupClient,
-                               GroupSubService groupSubService
-    ) {
+                               GroupSubService groupSubService,
+                                @Value("#{'${bot.admins}'.split(',')}") List<String> admins) {
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
-                telegramUserService, javaRushGroupClient, groupSubService);
+                telegramUserService, javaRushGroupClient, groupSubService, admins);
     }
 
     @Override
@@ -50,9 +52,9 @@ public class JavaStudyTelegramBot extends TelegramLongPollingBot {
             String message = update.getMessage().getText().trim();
             if (message.startsWith(PREFIX_FOR_COMMAND)) {
                 String commandIdentifier = message.split(" ")[0];
-                commandContainer.retrieveCommand(commandIdentifier).execute(update);
+                commandContainer.retrieveCommand(commandIdentifier, update.getMessage().getFrom().getUserName()).execute(update);
             } else {
-                commandContainer.retrieveCommand(NO.getCommandName()).execute(update);
+                commandContainer.retrieveCommand(NO.getCommandName(), update.getMessage().getFrom().getUserName()).execute(update);
             }
         }
     }

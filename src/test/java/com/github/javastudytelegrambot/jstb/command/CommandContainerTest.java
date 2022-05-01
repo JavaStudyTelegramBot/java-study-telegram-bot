@@ -9,8 +9,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 @DisplayName("Tests for CommandContainer")
 public class CommandContainerTest {
@@ -24,14 +28,14 @@ public class CommandContainerTest {
         JavaRushGroupClient javaRushGroupClient = Mockito.mock(JavaRushGroupClient.class);
         GroupSubService groupSubService = Mockito.mock(GroupSubService.class);
         commandContainer = new CommandContainer(sendBotMessageService, telegramUserService,
-                                                javaRushGroupClient, groupSubService);
+                                                javaRushGroupClient, groupSubService, singletonList("username"));
     }
 
     @Test
     @DisplayName("Getting all existing commands")
     public void shouldGetAllTheExistingCommands() {
         Arrays.stream(CommandName.values()).forEach(commandName -> {
-                    Command command = commandContainer.retrieveCommand(commandName.getCommandName());
+                    Command command = commandContainer.retrieveCommand(commandName.getCommandName(), "username");
                     Assertions.assertNotEquals(UnknownCommand.class, command.getClass());
                     });
     }
@@ -41,7 +45,7 @@ public class CommandContainerTest {
     public void shouldReturnUnknownCommand() {
         String unknownCommand = "/unknown_message";
 
-        Command command = commandContainer.retrieveCommand(unknownCommand);
+        Command command = commandContainer.retrieveCommand(unknownCommand, "username");
 
         Assertions.assertEquals(UnknownCommand.class, command.getClass());
     }

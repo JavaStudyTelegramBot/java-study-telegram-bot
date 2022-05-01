@@ -1,5 +1,8 @@
 # Release Notes
 
+## 0.7.0-SNAPSHOT
+* added admin commands
+
 ## 0.6.0-SNAPSHOT
 
 *   added ability to send notifications about new articles

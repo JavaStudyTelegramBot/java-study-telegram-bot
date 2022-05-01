@@ -1,9 +1,11 @@
 package com.github.javastudytelegrambot.jstb.command;
 
+import com.github.javastudytelegrambot.jstb.command.annotation.AdminCommand;
 import com.github.javastudytelegrambot.jstb.service.SendBotMessageService;
 import com.github.javastudytelegrambot.jstb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+@AdminCommand
 public class StatCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
