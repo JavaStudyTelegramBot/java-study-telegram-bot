@@ -1,5 +1,8 @@
 # Release Notes
 
+## 0.7.1-SNAPSHOT
+* small fixes
+
 ## 0.7.0-SNAPSHOT
 * added admin commands
 
