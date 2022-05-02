@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk11:ubi
 ARG JAR_FILE=target/*.jar
-ENV BOT_NAME=test_java_study_bot
-ENV BOT_TOKEN=5341917446:AAHoTpi8cj6gKZmRuNX42-VJbdmP-jofwFE
+ENV BOT_NAME=java_study_telegram_bot
+ENV BOT_TOKEN=5333281252:AAHb7o3FBsxqSEvs5nddUgMSoboS5OuxpBM
 ENV BOT_DB_USERNAME=jstb_db_user
 ENV BOT_DB_PASSWORD=jstb_db_password
 COPY ${JAR_FILE} app.jar
