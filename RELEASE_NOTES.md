@@ -1,5 +1,8 @@
 # Release Notes
 
+## 0.8.0-SNAPSHOT
+* added statistics
+
 ## 0.7.1-SNAPSHOT
 * small fixes
 
